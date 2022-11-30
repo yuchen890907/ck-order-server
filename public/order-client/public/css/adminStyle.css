@@ -1,0 +1,20 @@
+.adminNavbar {
+  background-color: white;
+  color: black;
+}
+
+.loginForm input {
+  padding: 0.5rem;
+}
+.loginForm span a {
+  color: red;
+  font-size: 1.5rem;
+}
+
+#loginFooter .copyright {
+  color: black;
+  background-color: #f8fafb;
+}
+#loginFooter .footerText {
+  text-align: center;
+}/*# sourceMappingURL=adminStyle.css.map */

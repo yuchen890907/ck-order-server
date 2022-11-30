@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.69d04bf2.css",
+    "main.js": "/static/js/main.224e87a6.js",
+    "static/media/background.jpg": "/static/media/background.9659074647326c38ae5c.jpg",
+    "static/media/logo_horizon.svg": "/static/media/logo_horizon.73e71635453edf8a18355dad44a5d591.svg",
+    "static/media/logo_vertical.svg": "/static/media/logo_vertical.b3e85ec2a925339363432bb713c84b2a.svg",
+    "index.html": "/index.html",
+    "main.69d04bf2.css.map": "/static/css/main.69d04bf2.css.map",
+    "main.224e87a6.js.map": "/static/js/main.224e87a6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69d04bf2.css",
+    "static/js/main.224e87a6.js"
+  ]
+}

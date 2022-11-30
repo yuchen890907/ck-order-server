@@ -1,0 +1,1131 @@
+// --- 目錄
+// --- SCSS --> 13
+// --- System Loading --> 27
+// --- MenuNav --> 83
+// --- MenuPage --> 242
+// --- ShoppingCartPage --> 424
+// --- CheckoutPage --> 548
+// --- ConfirmPage --> 670
+// --- Media query(電腦平板) --> 749
+// --- Media query(手機) --> 781
+
+
+// -- scss --//
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Nunito", "Noto Sans TC", sans-serif;
+	box-sizing: border-box;
+    text-decoration: none !important;
+}
+body{
+    background-image: url(../img/background.jpg);
+    // backdrop-filter: blur(2px);
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+    //-----For System Loading -----//
+    .loading-page{
+        padding: 4%;
+        min-height: 10vh;
+        background-color: #f2f2f2;
+        display: flex;
+        align-items: center;
+        .container{
+            background-color: #f2f2f2;
+            h1{
+                text-align: center;
+            }
+            img{
+                margin-left: 35%;
+                width: 30%;
+                height: 30%;
+             }
+            .spinner {
+                margin: auto;
+                height: 100px;
+                width: 100px;
+                text-align: center;
+                & > div {
+                    width: 33%;
+                    height: 33%;
+                    background-color: #4c7031;
+                    border-radius: 100%;
+                    display: inline-flex;
+                    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+                    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+                }
+                .bounce1 {
+                    -webkit-animation-delay: -0.32s;
+                    animation-delay: -0.32s;
+                }
+                .bounce2 {
+                    -webkit-animation-delay: -0.16s;
+                    animation-delay: -0.16s;
+                }
+                @-webkit-keyframes sk-bouncedelay {
+                    0%, 80%, 100% { -webkit-transform: scale(0) }
+                    40% { -webkit-transform: scale(1.0) }
+                }
+                
+                @keyframes sk-bouncedelay {
+                    0%, 80%, 100% { 
+                        -webkit-transform: scale(0);
+                        transform: scale(0);
+                    }40% { 
+                        -webkit-transform: scale(1.0);
+                        transform: scale(1.0);
+                    }
+                }
+              }    
+        }  
+    }//End of loading
+    //-----For Components --> MenuNav -----//
+    // -- Navbar
+    .menu-navbar{
+        background-image: linear-gradient(to top right, #ebeabc,#cecfcc, #e9ebe6, #fafff2,#bcebc0);
+        //navbar menu btn
+        .nav-btn-menu{
+            font-size: 35px;
+            background-color: #e9ebe6;
+            height: 80%;
+            width: 110%;
+            border-color: #4c7031;
+            border-width: 5px;
+            border-radius: 50%;
+            color :#4c7031;
+            // text-align: center;
+            //action
+            &:hover{
+                border-color: #f49619;
+                .nav-menu-icon{
+                    color: #f49619;
+                }
+            }         
+        }
+        //navbar cart btn
+        .nav-btn-cart{
+            //dropdown
+            button{
+                margin-left: 20%;
+                font-size: 30px;
+                background-color: #e9ebe6;
+                height: 80px;
+                width: 80px;
+                border-color: #4c7031;
+                border-width: 5px;
+                border-radius: 50%;
+                color :#4c7031;
+                text-align: center;
+                //cart icon
+                .nav-cart-icon{
+                    font-size: 35px;
+                }         
+                span{
+                    padding-left: 20%;
+                    font-size: 20px;
+                    color: #4c7031; //#9fc78b;
+                    
+                }
+                //action
+                &:hover{
+                    color :#f49619;
+                    border-color: #f49619;
+                    .nav-cart-icon{
+                        color: #f49619;
+                    }
+                }
+                &:focus{
+                    background-color: #e9ebe6;
+                    color :#f49619;
+                    border-color: #f49619;
+                    .nav-cart-icon{
+                        color: #f49619;
+                    }
+                }
+            }
+            //cart number
+            span{
+                background-color: #cacc9b;
+                .nav-cart-num{   
+                    position:absolute;                
+                    margin-right: 80%;
+                    background-color: #cacc9b;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    
+                }
+            }               
+        }
+        //cart-btn-cart點開後的dropdown menu
+        .dropdown-menu{
+            border-radius: 0.5rem;
+            // box-shadow: 3px 3px 3px 3px rgba(102, 155, 111, 0.5);
+            background-color: #e6e6e6;
+            max-height:700px;
+            min-width: 500px;
+            overflow: auto;
+            .cart-item{
+                border-radius: 0.5rem;
+                box-shadow: 2px 2px 5px 2px rgba(171, 173, 172, 0.5);
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 20px;
+                margin-bottom: 20px;
+                .cart-item-delete{
+                    text-align: center;
+                    font-size: 30px;
+                    span{
+                        border: none;
+                        color: #d4ac5d !important;
+                        background-color: #e6e6e6;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    .cart-item-delete-icon{
+                        &:hover{
+                            color:#d41717;
+                        }
+                    }
+                }
+                .cart-item-img{
+                    width: 25%;
+                    height:100px;
+                    text-align: center;
+                    img{
+                        border-radius: 1.0rem;
+                        border-width: 3px;
+                        max-width: 90%;
+                        max-height: 100%;
+                        object-fit:fill; 
+                    }
+                }
+                .cart-item-detail{
+                    
+                    .cart-detail-name{
+                        color:orange;
+                        padding-top: 5%; 
+                        font-size: 17px;
+                        font-weight: bold;
+                    }
+                    .cart-detail-unitprice{
+                        font-size: 15px;
+                    }
+                    .cart-detail-qty{
+                        font-size: 15px ;
+                    }
+                }
+            }
+            .go-cart{      
+                margin-left: 65%;              
+                button{
+                    position:sticky;
+                    font-size: 15px !important;
+                    font-weight: bold;
+                    height: 40px !important;
+                    width:120px !important;
+                    border-radius: 0.5rem !important;
+                    border-color: #4c7031 !important;
+                    color :#4c7031;
+                }
+            }
+            
+        }
+    }//End of nav
+    // -- a元素
+    .a{
+        text-decoration:none !important;
+        color:black;
+        font-size: 12px;
+    }//End of a
+    //-----For Page --> MenuPage -----//
+    // -- menu部分
+    .menu-page{
+        border-radius: 0.5rem;
+		box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.2);
+        position: relative;
+        border-color: #ededed;
+        background-color: #f2f2f2;
+        padding-top: 0px; 
+        padding-bottom: 70px;
+        .menu-tab-nav{
+            font-size: 23px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            a{
+                width: 100%;
+                color:#4c7031;
+                margin-right: 2%;
+                border-radius: 0.3rem 0.3rem 0 0;
+                border-style: solid;
+                border-width: 3px;
+                border-top-width: 9px;
+                border-color: #4c7031;
+                border-bottom: none;
+                background-color: #f2f2f2;;
+                &:active{    
+                    border-bottom-width: 2px;
+                    border-bottom-style: outset;
+                    border-bottom-color: #1d8f41;                   
+                    background-color: #bcebc0;
+                }
+                &:focus{
+                    border-bottom-width: 2px;
+                    border-bottom-style: solid;
+                    border-bottom-color: #1d8f41; 
+                    background-color: #bcebc0;
+                }
+            }
+        }
+        //before -->  error tabs (cannot overflow) 
+        // .menu-tab-nav{
+        //     background-color: #f2f2f2;
+        //     .nav-item{
+        //         border-color:#4c7031;
+        //         font-size: 1.2rem;
+        //         .nav-link{
+        //             background-color: #f2f2f2;
+        //             color: black;
+        //             &:active{    
+        //                 border-bottom-width: 2px;
+        //                 border-bottom-style: outset;
+        //                 border-bottom-color: #1d8f41;                   
+        //                 background-color: #bcebc0;
+        //             }
+        //             &:focus{
+        //                 border-bottom-width: 2px;
+        //                 border-bottom-style: solid;
+        //                 border-bottom-color: #1d8f41; 
+        //                 background-color: #bcebc0;
+        //             }
+        //         }
+                
+        //     }
+        // }
+        // .menu-tab-nav::-webkit-scrollbar {
+        //     display: none;
+        // }
+        //menu
+        //menu containt
+        .menus {/*每項菜單*/
+            padding-bottom: 10px;
+            margin-bottom: 0px;
+            border-bottom: 1px dashed #ccc;
+            cursor: pointer;
+            //menu內容
+            .product-img {/*餐點圖片大小 */
+                margin-left: 15px;
+                overflow: hidden;
+                height: 50px;
+                width: 50px; 
+                img {
+                    transition: all .5s ease;
+                    height: 100%;
+                    object-fit: cover; 
+                    &:hover{
+                        transform: scale(1.1, 1.1); 
+                    }
+                }
+            }
+            //每項菜單
+            .text-wrap{                         
+                width: calc(100% - 95px);
+                margin-left: 15px;
+                .product-name{
+                    text-align: center;
+                    p{
+                        text-decoration: none !important;
+                        color: #242423;
+                        font-weight: 500; 
+                        font-size: 16px;
+                        margin-right: 15px;
+                    }
+                }
+                .product-price{               
+                    text-align: right;
+                    p{
+                        text-decoration: none !important;
+                        color: #242423;
+                        font-weight: 500; 
+                        font-size: 16px;
+                        margin-right: 15px;
+                    }
+                }          
+            }
+        }
+    }//End of menu  
+    //客製化modal
+    .modal-dialog{
+        font-size: 18px;
+        top:25%;
+        transform: translate(-50%,-50%);
+        .modal-content{
+            background-color: #f2f2f2;
+            border-radius: 1.2rem;
+            border-width: 5px;
+            border-color: #b6b8b6;
+        }
+        .modal-header{
+            background-color: #dedede;
+            border-radius: 12px;
+        }
+        .modal-body{
+            .modal-custom{
+                .form-label{
+                    font-size: 20px;
+                }
+                .custom-detail{
+                    input[type="checkbox"]:checked {
+                        border:none;
+                        background-color: #c1d6a9;
+                    }
+                    input[type="radio"]:checked {
+                        border:none;
+                        background-color: #c1d6a9;
+                    }
+                }            
+            }
+        }
+        .modal-qty-update{
+            margin-left: 20%;
+            .cart-item-qty-minus{ 
+                outline: none; 
+                font-weight: bold;            
+                color:#d48179;
+                border-width: 3px;
+                border-color: #d48179;
+                border-radius: 0.2rem;
+                background-color: #f2f2f2;
+            }
+            .cart-item-qty-increase{
+                outline: none; 
+                font-weight: bold;   
+                color:#8bc9ba;
+                border-width: 3px;
+                border-color: #8bc9ba;
+                border-radius: 0.2rem;
+                background-color: #f2f2f2;
+            }
+            .cart-item-qty-input{
+                border-color: #c4c4c4;
+                text-align: center;
+                max-width: 50%;
+            }
+        }
+        .add-to-cart{
+            color:#242423;
+            border-width: 3px;
+            border-radius: 1rem;
+            border-color:#c4c4c4;
+            background-color: #f2f2f2;
+        }
+    }//End of custom modal
+    //-----For Page --> ShoppingCartPage -----//
+    //購物車介面
+    .shoppingcart-page{
+        .cart-nav{
+            text-align: center;
+            font-size: 20px;
+            color: #cacc9b;
+            border-radius: 0.5rem 0.5rem 0 0;
+            background-color: #4c7031;
+        }
+        //購物車內商品
+        .product-container{
+            .purchase-item{
+                border:none;
+                background-color: #dedede;
+                text-align: center;
+                img{ 
+                    margin-top: 10%;                                                       
+                    width: 80px;
+                    height: 80px;
+                    object-fit:cover;
+                    border-radius: 50%;
+                }
+                .purchase-item-name{
+                    display: flex;
+                    align-items: center;
+                    p{
+                        margin-top: 10%;
+                        margin-left: 10%;
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: orange;
+                    }
+                }
+                .purchase-item-price{
+                    display: flex;
+                    align-items: center;
+                    p{
+                        margin-top: 10%;
+                        margin-left: 40%;
+                        font-size: 20px;
+                    }
+                }
+                .purchase-item-qty-update{
+                    button{
+                        margin-top: 10%;
+                        margin-left: 10%;
+                        width: 50px;
+                        height: 50px;
+                        font-size: 20px; 
+                        font-weight: bold;                  
+                        background-color: #dedede;
+                    }
+                    .btn-qty-increase{
+                        color: #8bc9ba;
+                        border-radius: 50%;
+                        border-width: 5px;
+                        border-color: #8bc9ba;
+                    }
+                    .btn-qty-minus{
+                        color: #d48179;
+                        border-radius: 50%;
+                        border-width: 5px;
+                        border-color: #d48179;
+                    }
+                }
+                .purchase-item-qty{
+                    display: flex;
+                    align-items: center;
+                    p{
+                        margin-top: 10%;
+                        margin-left: 50%;
+                        font-size: 20px;
+                    }                  
+                }
+                .purchase-item-delete{
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    button{
+                        margin-left: 30%;
+                        // margin-bottom: 10%;
+                        font-size: 25px;
+                        color:#242423;
+                        border-color: #dedede;
+                        background-color: #dedede;
+                        & :hover{
+                            color:#d41717;
+                        }
+                    }                    
+                }
+            }
+        }//End of 購物車商品部分
+    }//End of Shopping cart page
+    .cart-footer{
+        height: 80px;
+        box-shadow: 2px 2px 5px 2px rgba(171, 173, 172, 0.5);
+        border-radius: 0 0 0.4rem 0.4rem;
+        background-color: #dedede;
+        .cart-footer-left{
+            h6{
+                font-size: 22px;
+                font-weight: bold;
+            }
+            span{
+                font-size: 25px;
+                font-weight: bold;
+                color:#4c7031;
+            }
+        }
+        .cart-footer-right{
+            button{
+                font-weight: bold;
+                margin-left: 80%;
+                color: #4c7031;
+                border-width: 3px;
+                border-radius: 0.4rem;
+                border-color: #4c7031;
+                &:hover{
+                    background-color: #dedede;
+                }
+            }
+        }
+    }//End of Shopping cart footer
+    //-----For Page --> CheckoutPage -----//
+    //結帳介面
+    .checkout-page{
+        box-shadow: 3px 3px 3px 3px rgba(162, 163, 163, 0.5);
+        border-radius: 0.5rem;
+        border-width: 10px;
+        border-style: solid;
+        border-color: #4c7031;
+        // border-bottom-width: 15px;
+        // border-bottom-style: solid;
+        // border-bottom-color: #4c7031; 
+        // // border-top: none;
+        // border-bottom: none;      
+        background-color: #f2f2f2;
+        .card{
+            background-color: #f2f2f2;
+            // .card-body{
+            //     border-right-style: dotted;
+            //     border-right-width: 5px;      
+            //     border-right-color: #4c7031;
+            //     border-left-style: dotted;
+            //     border-left-width: 5px;      
+            //     border-left-color: #4c7031;
+            // }
+            .card-header{
+                font-size: 25px;
+                font-weight: bold;
+                border: none;
+                color: #5e5e5e;
+                background-color: #dfdfdf;
+            }
+        }
+        .list-group-item{
+            border-top:none;
+            border-right: none;
+            border-left: none;
+            background-color: #f2f2f2;
+        }
+        .cart-info{
+            font-size: 18px;
+            border-top:none;
+            border-left:none;
+            border-right: none;
+            span{          
+                font-size: 20px;
+                font-weight: bold;
+                color:orange;
+            }
+            .total-price{
+                font-size: 25px;
+                font-weight: bold;
+                color: #4c7031;
+            }
+        }
+        .take-away{
+            text-align: center;
+            font-size: 20px;
+            border-top:none;
+            border-left:none;
+            border-right: none;
+            .form-check{
+                margin-right: 10%;
+                margin-left: 10%;
+                input[type="radio"]:checked {
+                    border:none;
+                    background-color: #c1d6a9;
+                }
+            }
+        }
+        .payment{
+            text-align: center;
+            font-size: 20px;
+            border-top:none;
+            border-left:none;
+            border-right: none;
+            .form-check{
+                input[type="radio"]:checked {
+                    border:none;
+                    background-color: #c1d6a9;
+                }
+            }
+        }
+        .guest-info{
+            border-top:none;
+            border-left:none;
+            border-right: none;
+            span{
+                width: 10%;
+                font-size: 20px;
+                color:#c1d6a9;
+                background-color: #1d8f41;
+            }
+            input{
+                font-size: 18px;
+            }
+        }
+        .btn-checkout-submit{
+            height: 45px;
+            text-align: center;
+            border-top:none;
+            border-bottom:none;
+            // border-right-style: dotted;
+            // border-right-width: 5px;      
+            // border-right-color: #4c7031;
+            // border-left-style: dotted;
+            // border-left-width: 5px;      
+            // border-left-color: #4c7031; 
+            a{
+                width: 200px;               
+                // margin-left: 80%;
+                font-weight: bold;
+                color: #4c7031;
+                border-width: 3px;
+                border-radius: 0.4rem;
+                border-color: #4c7031;
+                background-color: #dedede;
+                &:hover{
+                    background-color: #dedede;
+                }
+            }
+        }
+    }//End of Checkout Page
+    //-----For Page --> ConfirmPage -----//
+    //訂單介面
+    .confirm-page{
+        box-shadow: 2px 2px 5px 2px rgba(171, 173, 172, 0.5);
+        border-radius: 1rem;
+        border-left-style: dashed;
+        border-left-width: 7px;      
+        border-left-color: #242423;
+        background-color: #1d8f41;
+        .card-header{
+            font-size: 25px;
+            font-weight: bold;
+            color: #242423;
+            background-color: #c9b647;
+        }
+        .card-body{ 
+            background-color: #f2f2f2;
+        }
+        .card-title{
+            font-size: 24px;
+            font-weight: bold;
+            color: #242423;
+        }
+        .card-text{
+            font-size: 18px;
+            font-weight: 700;
+            color: #242423;
+            span{
+                font-size: 18px;
+                font-weight: 500;
+                
+            }
+            & > .order-status{
+                font-weight: bold;
+                color:#cc6e02;
+            }
+            & > .order-total{
+                font-size: 20px;
+                font-weight: bold;
+                color:#1d8f41;
+            }
+        }
+        .order-item{
+            font-size: 20px;
+            font-weight: bold;
+            color: #242423;
+
+        }
+        .order-item-num{
+            text-align: center;
+            p{
+                width:30px;
+                height:30px;
+                color:#4c7031;
+                border-radius: 0.3rem !important;
+                border-width: 3px !important;
+                border-color: #4c7031 !important;
+                border-style: solid;
+            }                
+        }
+        .order-item-name{
+            p{
+                font-size: 20px;
+                font-weight: 500;
+            }          
+        }
+        .order-item-custom{
+            p{
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+        
+
+    }//End of Confirm page
+
+}
+
+
+//-- media query--//
+//平板電腦端Navbar
+@media (min-width: 576px) {
+    body{
+        padding-top: 200px;
+        .boxed-page{
+            background-color: #ecfaf4;;
+            padding-top: 0px;
+            padding-bottom: 50px; 
+            margin-left: 30px;
+            margin-right: 30px; 
+        }
+        .menu-navbar{
+            max-height: 200px !important;
+            .only-mobile {
+                display: none !important; 
+            }
+            .only-desktop { 
+                display: block !important;
+                max-width: 450px;
+                max-height: 200px;
+                a{
+                    // margin-left: 20%;
+                    img {/*logo圖片大小*/
+                        width: 100%;
+                        height: 200px; 
+                    } 
+                }
+            }
+        } 
+    } 
+}
+//手機端Navbar
+@media (max-width: 572px) {
+    body{
+        padding-top: 70px;
+        .container{
+            position:static;
+        }
+        .loading-page{
+            .container{
+                .spinner{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+        .boxed-page {
+            padding-top: 20px; 
+        }
+        .only-mobile {
+            display: block !important;
+            img{
+                height: 70px;
+            }
+        }
+        .only-desktop {
+            display: none !important; 
+        }
+        .menu-navbar{
+            max-height: 100px !important;
+            .nav-btn-menu{
+                margin-left: 130px;
+                font-size: 15px;
+                height: 45px;
+                width: 45px;
+                border-width: 3px;
+            }
+            .nav-btn-cart{
+                button{
+                    margin-left: 10%;
+                    font-size: 15px;
+                    height: 45px;
+                    width: 45px;
+                    border-width: 3px;
+                    .nav-cart-icon{
+                        font-size: 15px;
+                    }
+                    .nav-cart-num{                   
+                        margin-right: 80%;
+                        height: 20px;
+                        width: 25px;
+                        border-radius: 50%;
+                    }
+                    span{
+                        padding-left: 50%;
+                        padding-top: 25%;
+                        padding-bottom: 10px;
+                        font-size: 12px;
+                    }
+                }                
+                
+            }
+            .dropdown-menu{
+                border-radius: 0.5rem;
+                // box-shadow: 3px 3px 3px 3px rgba(102, 155, 111, 0.5);
+                background-color: #e6e6e6;
+                max-height:500px;
+                min-width: 300px;
+                overflow: auto;
+                .cart-item{
+                    font-size: 12px !important;
+                    max-width: 280px;
+                    .cart-item-detail{
+                            .cart-detail-name{                            
+                                font-weight: bold;
+                                p{
+                                    font-size: 12px !important;
+                                }
+                            }
+                            .cart-detail-unitprice{
+                                p{
+                                    font-size: 10px !important;
+                                }
+                            }
+                            .cart-detail-qty{
+                                p{
+                                    font-size: 10px !important;
+                                }
+                            }
+                        
+                    }
+                    .cart-item-delete{
+                        font-size: 20px;
+                        span{
+                            font-weight: bold;
+                            font-size: 14px;
+                        }
+                        .cart-item-delete-icon{
+                            margin-top: 60%;
+                        }
+                    }
+                    .cart-item-img{
+                        display:none;
+                        // margin-left: 20px;
+                        overflow: hidden;
+                        img{
+                            transition: all .5s ease;
+                            object-fit: cover; 
+                        }
+                    }
+                }
+                .go-cart{      
+                    margin-left: 55%;              
+                    // text-align: right;
+                    button{
+                        position:sticky;
+                        // text-align: right; 
+                        
+                        // margin-top: 35%;
+                        // margin-right: 1% !important;
+                        // padding-bottom: 5%;
+                        font-size: 12px !important;
+                        height: 35px !important;
+                        width:100px !important;
+                        // background-color: #4c7031;
+                    }
+                }
+                
+            }
+        }
+        .menu-page{
+            //good
+            .menu-tab-nav{
+                a{
+                    font-size: 18px;
+                    width: 100%;
+                    color:#4c7031;
+                    margin-right: 3%;
+                    padding: 1%;
+                    border-style: solid;
+                    border-width: 2px;
+                    border-top-width: 6px;
+                    border-color: #4c7031;
+                    border-bottom: none;
+                    background-color: #f2f2f2;
+                }
+            }
+            //bad
+            // .menu-tab-nav{
+            //     overflow-x: scroll;
+            //     overflow-y: hidden;
+            //     background-color: #f2f2f2;
+            //     .nav-link{
+            //         height:20px;
+            //     }
+            // }
+            .menus{
+                .text-wrap{                         
+                    .product-name{
+                        p{
+                            font-size: 14px;
+                            margin-left: 16px;
+                        }
+                    }
+                    .product-price{               
+                        p{
+                            font-size: 14px;
+                        }
+                    }          
+                }
+            }
+        }
+        .modal-dialog{
+            font-size: 15px;
+            top:20%;
+            .modal-body{
+                .modal-custom{
+                    .form-label{
+                        font-size: 18px;
+                    }           
+                }
+            }
+            .modal-qty-update{
+                margin-left: 15%;
+            }
+        }//End of custom modal
+        .shoppingcart-page{
+            .cart-nav{
+                font-size: 15px;
+            }
+            //購物車內商品
+            .product-container{
+                .purchase-item{
+                    img{
+                        margin-top: 20%;                                                 
+                        width: 40px;
+                        height: 40px;
+                        object-fit:cover;
+                        border-radius: 50%;
+                    }
+                    .purchase-item-name{
+                        p{
+                            margin-left: -40%;
+                            font-size: 12px;
+                        }                       
+                    }
+                    .purchase-item-price{
+                        p{
+                            margin-left: 5%;
+                            font-size: 14px;
+                        }                    
+                    }
+                    .purchase-item-qty-update{
+                        position:relative;
+                        display: flex;
+                        align-items: center;
+                        button{
+                            margin-top: 10%;
+                            margin-bottom: 20%;
+                            width: 40px;
+                            height: 40px;
+                            font-size: 15px; 
+                            font-weight: bold;
+                        }
+                        .btn-qty-increase{
+                            border-width: 3px;
+                        }
+                        .btn-qty-minus{
+                            border-width: 3px;
+                        }
+                    }
+                    .purchase-item-qty{
+                        p{
+                            margin-left: 70%;
+                            font-size: 14px;
+                        }     
+                    }
+                    .purchase-item-delete{
+                        button{
+                            margin-left: -250%;
+                            margin-bottom: 200%;
+                            font-size: 15px;
+                        }                    
+                    }
+                }
+            }
+        }//End of shopping cart page
+        .cart-footer{
+            height: 50px;
+            .cart-footer-left{
+                h6{
+                    font-size: 10px;
+                }
+                span{
+                    font-size: 15px;
+                }
+            }
+            .cart-footer-right{
+                button{
+                    font-size: 12px;
+                    margin-left: 50%;
+                    border-width: 3px;
+                }
+            }
+        }//End of shopping cart footer
+        .checkout-page{
+            .card{
+                .card-header{
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            }
+            .cart-info{
+                font-size: 12px;
+                span{          
+                    font-size: 12.5px;
+                }
+                .total-price{
+                    font-size: 20px;
+                }
+            }
+            .take-away{
+                font-size: 18px;
+            }
+            .payment{
+                font-size: 18px;
+            }
+            .guest-info{
+                span{
+                    font-size: 14px;
+                    font-weight: bold;
+                    width:30%;
+                }
+                input{
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+            }
+            .btn-checkout-submit{
+            a{
+                font-size: 13px;
+                width: 100px;               
+                // margin-left: 50%;
+            }
+            }
+        }//End of checkout page
+        .confirm-page{
+            .card-header{
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .card-title{
+                font-size: 20px;
+            }
+            .card-text{
+                font-size: 15px;
+                font-weight: 700;
+                color: #242423;
+                span{
+                    font-size: 15px;                   
+                }
+                & > .order-status{
+                    font-size: 18px;
+                }
+            }
+            .order-item{
+                text-align: center;
+                font-size: 18px;
+            }
+            .order-item-num{
+                text-align: center;
+                margin-right: 3%;
+                p{                    
+                    width:25px;
+                    height:25px;
+                    font-size: 12px;
+                }                
+            }
+            .order-item-name{
+                p{
+                    font-size: 15px;
+                }          
+            }
+            .order-item-custom{
+                p{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

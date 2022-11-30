@@ -1,0 +1,169 @@
+body {/*展開後的外框*/
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: #000;
+  background-color:  #e7f7f1; 
+}
+.boxed-page{
+  position: relative;
+  border-color: #ededed;
+  background-color: #ecfaf4;
+  padding-top: 0px; 
+  padding-bottom: 70px; 
+}
+
+@media (min-width: 992px) {/*展開的菜單部分*/
+    .boxed-page{
+	  background-color: #ffffff;
+      padding-top: 0px;
+      padding-bottom: 50px; 
+      margin-left: 30px;
+      margin-right: 30px; } }
+
+@media (min-width: 1200px) {/*展開的header */
+  /* .boxed-page {
+    margin: 30px; 
+  }  */
+}
+a{
+  text-decoration:none;
+  color:black;
+  font-size: 12px;
+}
+/*==================================
+=               Custom               =
+==================================*/
+.custom-control-label{
+  font-size: 22px;
+}
+/*radio button size*/
+input[type=radio] {
+  border: 0px;
+  width: 75%;
+  height: 1.5em;
+}
+input[type=checkbox] {
+  border: 0px;
+  width: 25%;
+  height: 2em;
+}
+/*==================================
+=               Menu               =
+==================================*/
+.menu_footer {
+	 background-color: #ffffff;
+	position: fixed;
+	bottom :0px;
+  height: 60px;
+  width: 100%;
+}
+.menu_footer a{
+  font-family:Noto Sans Traditional Chinese; 
+	font-size: 18px;
+  margin-top: 0px; 
+  text-align: right; 
+}
+@media (min-width: 992px) {/*展開的footer部分*/
+  .boxed-page .menu_footer {
+	  background-color: #ecfaf4;
+  } 
+}
+@media (min-width: 992px) {/*展開的footer部分*/
+  .boxed-page-cart .menu_footer {
+	  background-color: #ecfaf4;
+  } 
+}
+
+.navbar-brand-center {/*logo*/
+  padding-left: 70px;
+  padding-right: 70px; }
+.navbar-brand-center img {/*logo圖片大小*/
+  height: 70px; 
+}
+.navbar-brand-center2 img {/*logo圖片大小*/
+  height: 200px; 
+}
+  
+.menus:hover img {
+  transform: scale(1.1, 1.1); }
+.heading-menu{
+  margin: 50px;
+}
+
+.menu-img {/*餐點圖片大小 */
+  margin-left: 15px;
+  overflow: hidden;
+  height: 50px;
+  width: 50px; }
+  .menu-img img {
+    transition: all .5s ease;
+    height: 100%;
+    object-fit: cover; }
+
+.menu-price {/*價錢部分*/
+  text-align: right; }
+
+.menus {/*每項菜單*/
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  border-bottom: 1px dashed #ccc; }
+  .menus p, .menus h3 {/*菜單內容物*/
+    margin-bottom: 0; }
+  .menus .text-wrap {/*每項菜單除圖片*/
+    width: calc(100% - 95px);
+    margin-left: 15px; }
+    .menus .text-wrap h6 {/*品名加價錢部分*/
+      font-weight: 500; 
+      font-size: 16px;
+      margin-right: 15px;
+	  }
+/*==================================
+=            RESPONSIVE            =
+==================================*/
+    .only-mobile {
+      display: none !important; }
+    
+    @media (max-width: 992px) {
+      .hero {
+        height: 100%; }
+      .boxed-page {
+        padding-top: 20px; }
+      .boxed-page-cart {
+        padding-top: 110px; 
+        padding-bottom: 110px; 
+      }
+      #navbar-header {
+        position: fixed;
+        top: 0;
+        height: auto;
+        width: 100%;
+        background-color: #fff;
+        z-index: 11;
+        padding-top: 15px;
+        padding-bottom: 15px; }
+        #navbar-header .dropdown-menu {
+          box-shadow: none !important; }
+        #navbar-header .navbar-collapse {
+          margin-top: 15px;
+          background: #fff !important; }
+      .only-mobile {
+        display: block !important; }
+      .only-desktop {
+        display: none !important; }
+      .menu-wrap {
+        margin-bottom: 30px; }
+      .footer-widget {
+        margin-bottom: 30px; }
+      .hero-left {
+        padding-top: 30px;
+        padding-bottom: 30px; } }
+    
+    @media (max-width: 767px) {
+      .hero-left,
+      .hero-carousel .owl-item img {
+        height: 600px; }
+      .thumb-menu img {
+        height: 90px; }
+      .img-2 {
+        height: 500px; } }
+    
